@@ -1,0 +1,17 @@
+{
+  "name": "Owsla_Button",
+  "version": "1.0.0",
+  "description": "",
+  "main": "owsla_button.js",
+  "dependencies": {
+    "discord-buttons": "^2.4.1",
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
