@@ -3,11 +3,11 @@ const client = new discord.Client();
 const disbut = require('discord-buttons')(client);
 
 let config = {
-    "vk": "Vampir Köylü Rol ID",
-    "dc": "Doğruluk Cesaretlik Rol ID",
-    "gartic": "Gartic IO Rol ID",
-	"botOwner": "Bot Sahibinin ID'si",
-	"token": "Bot Tokeni"
+"vk": "Vampir Köylü Rol ID",
+"dc": "Doğruluk Cesaretlik Rol ID",
+"gartic": "Gartic IO Rol ID",
+"botOwner": "Bot Sahibinin ID'si",
+"token": "Bot Tokeni"
 };
 
 client.on("message", async (message) => {
