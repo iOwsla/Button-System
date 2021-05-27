@@ -2,14 +2,16 @@ const discord = require('discord.js');
 const client = new discord.Client();
 const disbut = require('discord-buttons')(client);
 
-let roller = {
+let config = {
     "vk": "Vampir Köylü Rol ID",
     "dc": "Doğruluk Cesaretlik Rol ID",
-    "gartic": "Gartic IO Rol ID"
+    "gartic": "Gartic IO Rol ID",
+	"botOwner": "Bot Sahibinin ID'si",
+	"token": "Bot Tokeni"
 };
 
 client.on("message", async (message) => {
-    if (message.content !== "!button" && message.author.id === "BotOwnerID") return; // BOT SAHİBİ ID' GİRİNİZ VE BU KOMUTU SADECE 1 DEFALIĞINA 1 KANALDA KULLANINIZ!
+    if (message.content !== "!button" && message.author.id === config.botOwner) return; // BOT SAHİBİ ID' GİRİNİZ VE BU KOMUTU SADECE 1 DEFALIĞINA 1 KANALDA KULLANINIZ!
     let vk = new disbut.MessageButton()
         .setStyle('green')
         .setLabel('Vampir Köylü!')
@@ -26,39 +28,39 @@ client.on("message", async (message) => {
     message.channel.send('Aşağıdaki menüden kendinize oyun seçebilirsiniz. Bir oyunun rolünü almak için o butona tıklayın.', {
         buttons: [vk, dc, grt]
     });
-})
+});
 
 client.on('clickButton', async (button) => {
     if (button.id === 'vk') {
-        if (button.clicker.member.roles.cache.get(roller.vk)) {
-            await button.clicker.member.roles.remove(roller.vk)
+        if (button.clicker.member.roles.cache.get(config.vk)) {
+            await button.clicker.member.roles.remove(config.vk)
             await button.think(true);
             await button.reply.edit("Vampir Köylü rolü üzerinizden alındı.")
         } else {
-            await button.clicker.member.roles.add(roller.vk)
+            await button.clicker.member.roles.add(config.vk)
             await button.think(true);
             await button.reply.edit("Vampir Köylü rolü üzerinize verildi.")
         }
     }
     if (button.id === 'dc') {
-        if (button.clicker.member.roles.cache.get(roller.dc)) {
-            await button.clicker.member.roles.remove(roller.dc)
+        if (button.clicker.member.roles.cache.get(config.dc)) {
+            await button.clicker.member.roles.remove(config.dc)
             await button.think(true);
             await button.reply.edit("Doğruluk Cesaret rolü üzerinizden alındı.")
         } else {
-            await button.clicker.member.roles.add(roller.dc)
+            await button.clicker.member.roles.add(config.dc)
             await button.think(true);
             await button.reply.edit("Doğruluk Cesaret rolü üzerinize verildi.")
         }
 
     }
     if (button.id === 'gartic') {
-        if (button.clicker.member.roles.cache.get(roller.gartic)) {
-            await button.clicker.member.roles.remove(roller.gartic)
+        if (button.clicker.member.roles.cache.get(config.gartic)) {
+            await button.clicker.member.roles.remove(config.gartic)
             await button.think(true);
             await button.reply.edit("Gartic.İO rolü üzerinizden alındı.")
         } else {
-            await button.clicker.member.roles.add(roller.gartic)
+            await button.clicker.member.roles.add(config.gartic)
             await button.think(true);
             await button.reply.edit("Gartic rolü üzerinize verildi.")
         }
@@ -68,4 +70,4 @@ client.on('clickButton', async (button) => {
 });
 
 
-client.login("BOT TOKEN")
+client.login(config.token)
