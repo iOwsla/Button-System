@@ -11,13 +11,16 @@ let config = {
 };
 
 client.on("message", async (message) => {
-    if (message.content === "!button" && message.author.id === config.botOwner) return; // BOT SAHİBİ ID' GİRİNİZ VE BU KOMUTU SADECE 1 DEFALIĞINA 1 KANALDA KULLANINIZ!
+    const args = message.content.split(" ");
+    const command = args.shift();
+    if (command === "!button" && botOwner == message.author.id) {
     let vk = new disbut.MessageButton().setStyle('green').setLabel('Vampir Köylü!').setID('vk')
     let dc = new disbut.MessageButton().setStyle('red').setLabel('Doğruluk / Cesaretlik!').setID('dc')
     let grt = new disbut.MessageButton().setStyle("gray").setLabel('Gartic!').setID('gartic')
     message.channel.send('Aşağıdaki menüden kendinize oyun seçebilirsiniz. Bir oyunun rolünü almak için o butona tıklayın.', {
         buttons: [vk, dc, grt]
     });
+}
 });
 
 client.on('clickButton', async (button) => {
