@@ -11,7 +11,7 @@ let config = {
 };
 
 client.on("message", async (message) => {
-    if (message.content !== "!button" && message.author.id === config.botOwner) return; // BOT SAHİBİ ID' GİRİNİZ VE BU KOMUTU SADECE 1 DEFALIĞINA 1 KANALDA KULLANINIZ!
+    if (message.content === "!button" && message.author.id === config.botOwner) return; // BOT SAHİBİ ID' GİRİNİZ VE BU KOMUTU SADECE 1 DEFALIĞINA 1 KANALDA KULLANINIZ!
     let vk = new disbut.MessageButton()
         .setStyle('green')
         .setLabel('Vampir Köylü!')
