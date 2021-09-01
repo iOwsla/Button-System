@@ -13,7 +13,7 @@ let config = {
 client.on("message", async (message) => {
     const args = message.content.split(" ");
     const command = args.shift();
-    if (command === "!button" && botOwner == message.author.id) {
+    if (command === "!button" && config.botOwner == message.author.id) {
     let vk = new disbut.MessageButton().setStyle('green').setLabel('Vampir Köylü!').setID('vk')
     let dc = new disbut.MessageButton().setStyle('red').setLabel('Doğruluk / Cesaretlik!').setID('dc')
     let grt = new disbut.MessageButton().setStyle("gray").setLabel('Gartic!').setID('gartic')
